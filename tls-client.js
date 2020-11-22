@@ -18,7 +18,6 @@ var tls = require('tls'),
     events = require('events');
 
 var TLSClient = function (host, port) {
-	var contador=0;
     var options = {
         // Chain of certificate autorities
         // Client and server have these to authenticate keys 
