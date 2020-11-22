@@ -30,9 +30,9 @@ var TLSClient = function (host, port) {
               fs.readFileSync('ssl/ca4-cert.pem')
             ],
         // Private key of the client
-        key: fs.readFileSync('ssl/agent3-key.pem'),
+        key: fs.readFileSync('ssl/agent2-key.pem'),
         // Public key of the client (certificate key)
-        cert: fs.readFileSync('ssl/agent3-cert.pem'),
+        cert: fs.readFileSync('ssl/agent2-cert.pem'),
 
         // Automatically reject clients with invalid certificates.
         rejectUnauthorized: false             // Set false to see what happens.
