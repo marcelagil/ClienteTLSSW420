@@ -37,7 +37,7 @@ var status;
 				},
 				"alerta" : true,
 				"observaciones" : ""
-			}};
+			};
 			console.log("segNo: ", medicion); 
 			c1.write (medicion);
             //}, 100);
