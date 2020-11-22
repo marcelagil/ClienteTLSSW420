@@ -109,5 +109,5 @@ var status;
             console.log('STARTED');
                 //});
         }
-});
+//});
 }, 6000); 
