@@ -50,19 +50,6 @@ var status;
             console.log('Servidor desconectado');
         });
    
-        /*c1.on('message', function (message) {
-            console.log("Tag = ", message.tag);
-            console.log("Date = ", message.date);
-            if (message.seqNo !== seqNo) {
-                console.log ("Sequence number error, expected: ", seqNo);
-                process.exit();
-            }
-            if ((message.seqNo % 100) === 0) {
-                console.log (process.memoryUsage());
-            }
-            seqNo += 1;
-        });*/
-   
         console.log('STARTED');
     }
     else {
@@ -79,7 +66,7 @@ var status;
 				},
 				"dispositivo":{
 					"id":2,
-					"tipo":"Raspberry Pi 3"
+					"tipo":"Raspberry Pi 3 Model B+"
 				},
                 "fecha" : new Date(),
                 "medida ": {
@@ -98,19 +85,8 @@ var status;
         c1.on('disconnect', function (err) {
             console.log('Servidor desconectado');
         });              
-       /*c1.on('message', function (message) {  
-            console.log("Tag = ", message.tag);
-            console.log("Date = ", message.date);
-            //if (message.seqNo !== seqNo) {
-                //console.log ("Sequence number error, expected: ", seqNo);
-                //process.exit();
-            //}
-            if ((message.seqNo % 100) === 0) {
-                console.log (process.memoryUsage());
-            }
-        });*/
+
             console.log('STARTED');
-                //});
         }
 //});
 }, 6000); 

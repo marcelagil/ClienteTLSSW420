@@ -16,9 +16,7 @@ var tls = require('tls'),
     fs = require('fs'),
     util = require('util'),
     events = require('events');
-//var sensor = require('./sensor.js');
-// TLS Client object
-let cantidadEnvios=100;
+}
 var TLSClient = function (host, port) {
 	var contador=0;
     var options = {
