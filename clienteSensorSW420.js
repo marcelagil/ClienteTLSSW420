@@ -64,7 +64,7 @@ var status;
 		if (seqNo>maxMediciones) {
 			process.exit();
 		}
-		}var medicion= {
+		var medicion= {
                 "sensor" :{
 					"id":2,
 					"tipo":"SW420"
