@@ -8,6 +8,7 @@ var sensor = 0;
 wpi.setup('wpi');
 wpi.pinMode(sensor, wpi.INPUT);
 var seqNo = 0;
+var maxMediciones=100;
 setInterval(function () {
 console.log("La medida del sensor es", wpi.digitalRead(sensor));
 var status;
