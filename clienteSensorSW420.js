@@ -2,8 +2,11 @@
 "use strict";
 
 // Modules required here
+var wpi = require('node-wiring-pi');
 
-var sensor = require('node-dht-sensor');
+var sensor = 0;
+wpi.setup('wpi');
+wpi.pinMode(sensor, wpi.INPUT);
 var seqNo = 0;
 setInterval(function () {
 var status;
