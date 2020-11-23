@@ -95,6 +95,6 @@ function TestVibration(){
 	var data = JSON.stringify({ client: 'raspberry 2', status: status,  timestamp: new Date() });
 
 	console.log(data);
-	setTimeout(function(){ TestVibration() }, 200);
+	setTimeout(function(){ TestVibration() }, 6000);
 };
-setTimeout(function(){ TestVibration() }, 6000);
+setTimeout(function(){ TestVibration() }, 200);
