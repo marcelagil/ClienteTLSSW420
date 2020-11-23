@@ -97,4 +97,4 @@ function TestVibration(){
 	console.log(data);
 	setTimeout(function(){ TestVibration() }, 6000);
 };
-setTimeout(function(){ TestVibration() }, 200);
+
