@@ -4,7 +4,7 @@
 // Modules required here
 var wpi = require('node-wiring-pi');
 
-var sensor = 0;
+var sensor = 17;
 wpi.setup('wpi');
 wpi.pinMode(sensor, wpi.INPUT);
 var seqNo = 0;
