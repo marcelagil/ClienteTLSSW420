@@ -9,6 +9,7 @@ wpi.setup('wpi');
 wpi.pinMode(sensor, wpi.INPUT);
 var seqNo = 0;
 var maxMediciones=100;
+var tiempoEntreMedicion=1000;
 
 function TestVibration(){
 	var status;
@@ -95,6 +96,6 @@ function TestVibration(){
 	var data = JSON.stringify({ client: 'raspberry 2', status: status,  timestamp: new Date() });
 
 	console.log(data);
-	setTimeout(function(){ TestVibration() }, 6000);
+	setTimeout(function(){ TestVibration() }, tiempoEntreMedicion);
 };
 setTimeout(function(){ TestVibration() }, 2);
