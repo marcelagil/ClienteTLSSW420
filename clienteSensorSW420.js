@@ -10,7 +10,7 @@ wpi.pinMode(sensor, wpi.INPUT);
 var seqNo = 0;
 var tiempoTotal=600000;
 var tiempoEntreMedicion=1000;
-var maxMediciones=tiempoTotal/tiempoEntreMedicion; 
+var maxMediciones=(tiempoTotal/tiempoEntreMedicion)-2; 
 
 function TestVibration(){
 	var status;

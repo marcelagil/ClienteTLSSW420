@@ -3,9 +3,13 @@
 
 var wpi = require('node-wiring-pi');
 var sensor = 0;
+var tiempoTotal=600000;
 var tiempoEntreMedicion=1000;
+var maxMediciones=(tiempoTotal/tiempoEntreMedicion)-2; 
+contador=0;
 
 function TestVibration(){
+	contador=contador+1;
 	var status;
 	let ts = Date.now();	
 	if(wpi.digitalRead(sensor) == 1){
@@ -21,6 +25,10 @@ function TestVibration(){
 	var data = JSON.stringify({ client: 'raspberry 2', status: status,  timestamp: new Date() });
 
 	console.log(data);
+
+	if (contador>maxMediciones) {
+		process.exit();
+	}
 	setTimeout(function(){ TestVibration() }, tiempoEntreMedicion);
 };
 setTimeout(function(){ TestVibration() }, 2);
