@@ -4,19 +4,21 @@
 // Modules required here
 var wpi = require('node-wiring-pi');
 
-var sensor = 17;
+var sensor = 0;
 wpi.setup('wpi');
 wpi.pinMode(sensor, wpi.INPUT);
 var seqNo = 0;
-var maxMediciones=100;
-setInterval(function () {
-console.log("La medida del sensor es", wpi.digitalRead(sensor));
-var status;
+var tiempoTotal=600000;
+var tiempoEntreMedicion=1000;
+var maxMediciones=tiempoTotal/tiempoEntreMedicion; 
+
+function TestVibration(){
+	var status;
+	let ts = Date.now();	
 	if(wpi.digitalRead(sensor) == 1){
+		
 		console.log("Movement Detected");
 		status = 1;
-		//let ts = new Date();
-
         var TLSClient = require('./tls-client.js');
         var c1 = new TLSClient('agent1', 8000);
         c1.on('connect', function (err) {
@@ -44,17 +46,17 @@ var status;
 			};
 			console.log("segNo: ", medicion); 
 			c1.write (medicion);
-            //}, 100);
         });
    
         c1.on('disconnect', function (err) {
             console.log('Servidor desconectado o error en la conexión');
         });
-   
         console.log('STARTED');
-    }
-    else {
-		console.log("No se detecta movimiento");
+		
+	}else{
+		console.log("no Movement Detected");
+		status = 0;
+			console.log("No se detecta movimiento");
         var TLSClient = require('./tls-client.js');
         var c1 = new TLSClient('agent1', 8000);        
         c1.on('connect', function (err) {
@@ -91,6 +93,10 @@ var status;
         });              
 
             console.log('STARTED');
-        }
-//});
-}, 6000); 
+	}
+	var data = JSON.stringify({ client: 'raspberry 2', status: status,  timestamp: new Date() });
+
+	console.log(data);
+	setTimeout(function(){ TestVibration() }, tiempoEntreMedicion);
+};
+setTimeout(function(){ TestVibration() }, 2);
