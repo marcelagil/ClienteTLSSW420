@@ -1,4 +1,3 @@
-// Prueba de INA219
 'user strict';
 
 var wpi = require('node-wiring-pi');
@@ -7,6 +6,8 @@ var tiempoTotal=600000;
 var tiempoEntreMedicion=1000;
 var maxMediciones=(tiempoTotal/tiempoEntreMedicion)-2; 
 contador=0;
+wpi.setup('wpi');
+wpi.pinMode(sensor, wpi.INPUT);
 
 function TestVibration(){
 	contador=contador+1;
@@ -31,4 +32,4 @@ function TestVibration(){
 	}
 	setTimeout(function(){ TestVibration() }, tiempoEntreMedicion);
 };
-setTimeout(function(){ TestVibration() }, 2);
+setTimeout(function(){ TestVibration() }, 200);
